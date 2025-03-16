@@ -4,6 +4,14 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+// Создание кастомной иконки
+const customIcon = L.icon({
+    iconUrl: 'images/custom-marker.png', // Путь к вашей иконке
+    iconSize: [40, 40], // Размер иконки (ширина, высота)
+    iconAnchor: [20, 40], // Точка привязки иконки
+    popupAnchor: [0, -40] // Смещение всплывающего окна
+});
+
 const locations = [
     {
         title: "Нарвские триумфальные ворота",
@@ -14,10 +22,10 @@ const locations = [
             "images/triumf2.jpg",
         ]
     }
-]
+];
 
 locations.forEach(location => {
-    const marker = L.marker(location.coords).addTo(map);
+    const marker = L.marker(location.coords, { icon: customIcon }).addTo(map); // Используем кастомную иконку
 
     // Создаём HTML-строку для всех изображений
     let imagesHTML = '<div class="swiper"> <div class="swiper-wrapper">';
@@ -32,12 +40,14 @@ locations.forEach(location => {
             <div class="swiper-pagination"></div>
         </div>
     `;
+
     // Добавляем всплывающее окно с заголовком, изображениями и описанием
     marker.bindPopup(`
         <h4>${location.title}</h4>
         ${imagesHTML}
         <p>${location.description}</p>
     `);
+
     marker.on('popupopen', () => {
         new Swiper('.swiper', {
             loop: true,
@@ -52,6 +62,6 @@ locations.forEach(location => {
             autoplay: {
                 delay: 5000,
             },
-        })
-    })
+        });
+    });
 });
