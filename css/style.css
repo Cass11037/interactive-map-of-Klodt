@@ -1,3 +1,6 @@
+body {
+    background-color: #f0f0f0; /* Светло-серый фон */
+}
 #map {
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(32, 4, 114, 0.5);
@@ -109,4 +112,23 @@ h2 {
     margin: 0;
     font-size: 1rem;
     font-weight: bold;
+}
+.quiz {
+    list-style: none;
+}
+.quiz a {
+    text-decoration: none;
+    color: #03042b;
+    padding: 10px 20px; /* Внутренние отступы */
+    border: 2px solid #6394c5; /* Рамка */
+    border-radius: 10px; /* Скруглённые углы */
+    background-color: #f8f9fa; /* Фон */
+    transition: all 0.3s ease; /* Плавные переходы */
+    display: inline-block; /* Чтобы padding работал корректно */
+}
+.quiz a:hover {
+    background-color: #6394c5; /* Цвет фона при наведении */
+    color: white; /* Цвет текста при наведении */
+    transform: translateY(-2px); /* Эффект подъёма */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень при наведении */
 }
