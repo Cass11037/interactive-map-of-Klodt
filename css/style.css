@@ -66,17 +66,23 @@ h2 {
 }
 .swiper{
     width: 300px;
-    height: auto;
+    height: 200px;
     border-radius: 10px;
     overflow: hidden;
     margin: 20px auto;
     box-shadow: 0 4px 20px rgba(32, 4, 114, 0.5);
 }
-
-.swiper-slide img{
-    width: 100%;
+.swiper-slide {
+    display: flex; /* Центрирование изображения */
+    align-items: center;
+    justify-content: center;
     height: 100%;
-    object-fit: cover;
+}
+.swiper-slide img{
+    width: 100%; /* Ширина изображения на весь слайд */
+    height: 200px; /* Фиксированная высота */
+    object-fit: cover; /* Сохраняет пропорции и обрезает изображение */
+    border-radius: 10px; /* Скруглённые углы */
 }
 .swiper-button-next, .swiper-button-prev {
     color: white;
@@ -131,4 +137,24 @@ h2 {
     color: white; /* Цвет текста при наведении */
     transform: translateY(-2px); /* Эффект подъёма */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+}
+
+/* Стили для всплывающего окна */
+.leaflet-popup-content {
+    max-width: 300px; /* Ширина всплывающего окна */
+}
+
+/* Стили для контейнера с описанием */
+.description-container {
+    max-height: 150px; /* Ограничиваем высоту */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    margin-top: 10px; /* Отступ сверху */
+    padding-right: 10px; /* Отступ для полосы прокрутки */
+}
+
+/* Стили для текста */
+.description-container p {
+    margin: 0; /* Убираем отступы */
+    font-size: 0.9rem; /* Размер шрифта */
+    line-height: 1.4; /* Межстрочный интервал */
 }
