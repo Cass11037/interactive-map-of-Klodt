@@ -153,21 +153,19 @@ locations.forEach(location => {
 });
 
 
-// Преобразуем координаты точек в формат, подходящий для маршрутизации
-const waypoints = locations.map(location => L.latLng(location.coords[0], location.coords[1]));
+var routePoints = [
+    [59.939347, 30.289118], // Точка 1 (например, Исаакиевский собор)
+    [59.932120, 30.308458], // Точка 2 (например, Медный всадник)
+    [59.9461,30.3350],
+    [59.933203, 30.343375],
+    [59.900922, 30.273812]
 
-L.Routing.control({
-    waypoints: waypoints,
-    routeWhileDragging: true,
-    show: true,
-    addWaypoints: false,
-    draggableWaypoints: false,
-    fitSelectedRoutes: true,
-    lineOptions: {
-        styles: [{ color: '#0078A8', opacity: 0.7, weight: 5 }]
-    },
-    router: L.Routing.osrmv1({
-        serviceUrl: 'https://router.project-osrm.org/route/v1'
-    })
-}).addTo(map);
-console.log(L);
+];
+
+// Добавляем линию маршрута на карту
+var routeLine = L.polyline(routePoints, { color: '#200472',  // Цвет линии
+    weight: 1,        // Толщина линии (по умолчанию 3)
+    opacity: 0.7,     // Прозрачность (1 - полностью непрозрачная)
+    dashArray: '10, 5' // Пунктирная линия (10px - линия, 5px - пробел)
+ }).addTo(map);
+
