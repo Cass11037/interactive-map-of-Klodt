@@ -103,7 +103,11 @@ const locations = [
         images: [
             "images/kon1.jpg",
             "images/kon2.jpg",
-            "images/kon3.jpg"
+            "images/kon3.jpg",
+            "images/kon4.jpg",
+            "images/kon5.jpg",
+            "images/kon6.jpg",
+            "images/kon7.jpg"
         ]
     }
 ];
